@@ -39,7 +39,10 @@ const ProductsPage = () => {
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
             >
-                <option value="men's clothing">Men's Clothing</option>
+                <option value="">All Categories</option>
+                {categories.map(category =>(
+                    <option key={category.slug} value={category.slug}>{category.name}</option>
+                    ))}
             </select>
             <div className="products-grid">
                 {products.map(product => (
