@@ -26,6 +26,18 @@ const ProductsPage = () => {
         getCategories()
     },[])
 
+    const filteredProducts = products.filter((product)=>{
+    const matchesSearch = product.title
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase())
+
+    const matchesCategory = selectedCategory
+        ? product.category === selectedCategory
+        : true
+
+    return matchesSearch && matchesCategory
+    })
+
     return (
         <div className="products-page">
             <h1>Products</h1>
@@ -45,7 +57,7 @@ const ProductsPage = () => {
                     ))}
             </select>
             <div className="products-grid">
-                {products.map(product => (
+                {filteredProducts.map(product => (
                     <Link to={`/product/${product.id}`} key={product.id} className="product-card">
                         <img src={product.thumbnail} alt={product.title} />
                         <h3>{product.title}</h3>
