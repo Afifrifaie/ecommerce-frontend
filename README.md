@@ -1,16 +1,36 @@
-# React + Vite
+# Le Shop — Ecommerce Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully responsive ecommerce frontend built with React. 
+Browse products, filter by category, search by name, 
+and manage a shopping cart.
 
-Currently, two official plugins are available:
+## Live Demo
+[View Live](your-vercel-url-here)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Built With
+- React (Vite)
+- React Router
+- Context API for cart state management
+- CSS (custom, no libraries)
+- DummyJSON API
 
-## React Compiler
+## Features
+- Product listing with search and category filter
+- Product detail page
+- Add to cart, remove from cart, update quantity
+- Cart total calculation
+- Fully responsive — mobile and desktop
+- Loading state while fetching products
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
+git clone https://github.com/Afifrifaie/ecommerce-frontend.git
+cd ecommerce-frontend
+npm install
+npm run dev
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## What I Learned
+- React Router for client-side navigation
+- Context API to avoid prop drilling
+- Async/await for API calls
+- Responsive design with CSS media queries
+- Component-based architecture
