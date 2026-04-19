@@ -25,9 +25,9 @@ const ProductDetailPage = () => {
         <div className="product-detail">
             <img src={product.images[0]} alt={product.title}/>
             <h1>{product.title}</h1>
-            <p>{product.category}</p>
-            <p>{product.price}</p>
-            <p>{product.description}</p>
+            <p className="category">{product.category}</p>
+            <p className="price">{product.price}</p>
+            <p className="description">{product.description}</p>
             <button onClick={()=>{addToCart(product)}}>Add to cart</button>
         </div>
     )

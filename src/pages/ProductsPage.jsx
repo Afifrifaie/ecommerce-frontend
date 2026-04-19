@@ -6,12 +6,14 @@ const ProductsPage = () => {
     const [searchQuery, setSearchQuery] = useState('')
     const [selectedCategory, setSelectedCategory] = useState('')
     const [categories, setCategories] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(()=>{
     const getProducts = async () => {
         const res = await fetch('https://dummyjson.com/products')
         const data = await res.json()
         setProducts(data.products) 
+        setIsLoading(false)
     }
 
     getProducts()
@@ -41,21 +43,24 @@ const ProductsPage = () => {
     return (
         <div className="products-page">
             <h1>Products</h1>
-            <input 
-                type="text" 
-                placeholder="Search products..." 
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <select 
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-            >
-                <option value="">All Categories</option>
-                {categories.map(category =>(
-                    <option key={category.slug} value={category.slug}>{category.name}</option>
-                    ))}
-            </select>
+            <div className="filters">
+                <input 
+                    type="text" 
+                    placeholder="Search products..." 
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <select 
+                    value={selectedCategory}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                >
+                    <option value="">All Categories</option>
+                    {categories.map(category =>(
+                        <option key={category.slug} value={category.slug}>{category.name}</option>
+                        ))}
+                </select>
+            </div>
+            {isLoading ? (<div className="loading">Loading products...</div>) :(
             <div className="products-grid">
                 {filteredProducts.map(product => (
                     <Link to={`/product/${product.id}`} key={product.id} className="product-card">
@@ -65,6 +70,7 @@ const ProductsPage = () => {
                     </Link>
                 ))}
             </div>
+            )}
         </div>
     )
 }
